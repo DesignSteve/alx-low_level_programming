@@ -1,7 +1,7 @@
 #include "main.h"
+
 	/**
-	 * main - print _putchar
-	 * is written by Stephen
+	 * main: Entry point of my code,
 	 * Return: Always 0
 	 */
 
