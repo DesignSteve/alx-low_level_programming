@@ -1,33 +1,37 @@
-#include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
+
 /**
- * _strdup - function that returns a pointer to a newly allocated space in
- *           memory, which contains a copy of the string given as a parameter.
- *
- * @str: This is the input string
- *
- * Return: function returns a pointer to the duplicated string. It returns 
- *         NULL if insufficient memory was available
- */
+* _strdup - returns a pointer to a newly allocated
+*space in memory, which contains a copy of the
+*string given as a parameter.
+*@str:String to be copied
+*
+*Return: NULL in case of error, pointer to allocated
+*space
+*/
+
 char *_strdup(char *str)
 {
-	char *s;
-	int a, b;
+	char *cpy;
+	int index, len;
 
 	if (str == NULL)
 		return (NULL);
 
-	for (a = 0; str[a] != '\0'; a++)
-		;
-	s = (char *)  malloc((a + 1) * sizeof(char));
+	for (index = 0; str[index]; index++)
+		len++;
+	cpy = malloc(sizeof(char) * (len + 1));
 
-	if (s == NULL)
+	if (cpy == NULL)
 		return (NULL);
 
-	for (b = 0; b < a ; b++)
-		s[b] = str[b];
+	for (index = 0; str[index]; index++)
+	{
+		cpy[index] = str[index];
+	}
 
-	s[a + 1] = '\0';
-	return (s);
+	cpy[len] = '\0';
+
+	return (cpy);
+
 }
