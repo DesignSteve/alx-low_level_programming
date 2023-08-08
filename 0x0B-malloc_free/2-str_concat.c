@@ -1,42 +1,37 @@
 #include "main.h"
-#include <stdlib.h>
+
 /**
- * str_concat - get ends of input and add together for size
- * @s1: input one to concat
- * @s2: input two to concat
- * Return: concat of s1 and s2
- */
-char *str_concat(char *s1, char *s2)
+* _strdup - returns a pointer to a newly allocated
+*space in memory, which contains a copy of the
+*string given as a parameter.
+*@str:String to be copied
+*
+*Return: NULL in case of error, pointer to allocated
+*space
+*/
+
+char *_strdup(char *str)
 {
-	char *conct;
-	int i, ci;
+	char *cpy;
+	int index, len;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	i = ci = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[ci] != '\0')
-		ci++;
-	conct = malloc(sizeof(char) * (i + ci + 1));
-
-	if (conct == NULL)
+	if (str == NULL)
 		return (NULL);
-	i = ci = 0;
-	while (s1[i] != '\0')
+
+	for (index = 0; str[index]; index++)
+		len++;
+	cpy = malloc(sizeof(char) * (len + 1));
+
+	if (cpy == NULL)
+		return (NULL);
+
+	for (index = 0; str[index]; index++)
 	{
-		conct[i] = s1[i];
-		i++;
+		cpy[index] = str[index];
 	}
 
-	while (s2[ci] != '\0')
-	{
-		conct[i] = s2[ci];
-		i++, ci++;
-	}
-	conct[i] = '\0';
-	return (conct);
+	cpy[len] = '\0';
+
+	return (cpy);
+
 }
