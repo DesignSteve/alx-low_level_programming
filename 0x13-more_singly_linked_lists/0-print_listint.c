@@ -9,16 +9,15 @@
  * Return: the number of nodes
  *
  */
-int main()
+size_t print_listint(const listint_t *h)
 {
-    listint_t *head = NULL; // Initialize an empty linked list
+	size_t count = 0;
 
-    // Add nodes to the linked list (not shown here)
-
-    size_t node_count = print_listint(head);
-
-    printf("Number of nodes: %zu\n", node_count);
-
-    return 0;
+	while (h != NULL)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+		count++;
+	}
+	return (count);
 }
-
